@@ -55,15 +55,14 @@
 //         console.log("ТакоЇ пори року не існує");
 // }
 
-
 //TODO: 4 ===================================
 // скористаємося циклом while та виведіть у консоль числа від 0 до 50
 
-let number = 0;
-while (number <= 50) {
-    console.log(number);
-    number += 1;
-}
+// let number = 0;
+// while (number <= 50) {
+//     console.log(number);
+//     number += 1;
+// }
 
 //TODO: 5 ===================================
 //Використовуючи конструкцію if...else,
@@ -73,7 +72,13 @@ while (number <= 50) {
 // показати через alert: "Вірно!"
 //інакше відобразити: "Не знаєте? ECMAScript!"
 
-// const question = prompt('Яка «офіційна» назва JavaScript?').toLowerCase();
+// const question = prompt("Яка «офіційна» назва JavaScript?").toLowerCase();
+
+// if (question === "ecmascript") {
+//   alert("Вірно!");
+// } else {
+//   alert("Не знаєте? ECMAScript!");
+// }
 
 //TODO: 6 ===================================
 // Напишіть програму, яка отримає від користувача
@@ -81,6 +86,13 @@ while (number <= 50) {
 //рядок у форматі годин і хвилин
 //70 === 01:10
 // https://developer.mozilla.org/ru/docs/Web/JavaScript/Reference/Global_Objects/String/padStart
+// const globalMinuts = 69;
+// const hours = String(Math.floor(globalMinuts / 60)).padStart(2, 0);
+// console.log(hours);
+
+// const minuts = String(globalMinuts % 60).padStart(2, 0);
+// console.log(minuts);
+// console.log(`${hours}:${minuts}`);
 
 //TODO: 7 ===================================
 //Напишіть цикл, який виводить у консоль
