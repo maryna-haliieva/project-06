@@ -154,6 +154,19 @@
 // Робити перевірку,що користувач ввів саме число,
 // а не довільний набір символів, не потрібно.
 
+// let total = 0; // змінна для зберігання загальної суми
+// while (true) {
+//     const inputUser = prompt('Введіть число');
+  
+//     if (inputUser === null) { 
+//       break; // вийти з циклу, якщо користувач натиснув кнопку Cancel
+//     } else {
+//       const number = Number(inputUser); // перетворити введене значення в число
+//       total += number; // додати введене число до загальної суми
+//     }
+//   }
+// alert(`Загальна сума введених чисел дорівнює ${total}`); // виведення загальної суми за допомогою alert()
+
 //TODO: 10 ===================================
 // Напишіть цикл, який пропонує ввести
 // число більше 100 через prompt.
@@ -162,6 +175,15 @@
 // Цикл має питати число, поки відвідувач не
 // введе число більше 100, або натисне кнопку
 // скасування в prompt
+// let inputUserNumber;
+
+// do {
+//   inputUserNumber = prompt('Введите число больше 100');
+// } while (inputUserNumber !== null && (isNaN(inputUserNumber) || inputUserNumber <= 100));
+
+// if (inputUserNumber !== null) {
+//   alert(`Вы ввели число ${inputUserNumber}`);
+// }
 
 //TODO: 11 ===================================
 //Даний рядок, що складається із символів, наприклад, 'abcde'.
@@ -170,15 +192,32 @@
 
 // const str = 'abcde';
 
+// if (str.startsWith('a')) {
+//   console.log('так');
+// } else {
+//   console.log('ні');
+// }
+
 //TODO: 12 ===================================
 //Якщо число ділитися на 3 повертати
 //fizz якщо ділитися на 5 повертати buzz
 //Якщо ділитися на 3 і на 5 повернути fizzbuzz
 
+// let number;
+
+// if (number % 3 === 0 && number % 5 === 0) {
+//   console.log('fizzbuzz');
+// } else if (number % 3 === 0) {
+//   console.log('fizz');
+// } else if (number % 5 === 0) {
+//   console.log('buzz');
+// } else {
+//   console.log(number);
+// }
+
+
 //TODO: 13 ===================================
 // Напишіть if..else, що відповідає наступному switch:
-
-// const browser = 'Opera';
 
 // switch (browser) {
 //   case 'Edge':
@@ -193,5 +232,15 @@
 //     break;
 
 //   default:
+//     alert('We hope that this page looks ok!');
+// }
+
+// const browser = 'Opera';
+
+// if (browser === 'Edge') {
+//     alert("You've got the Edge!"); 
+// } else if (browser === 'Chrome' || browser === 'Firefox' || browser === 'Safari' || browser === 'Opera') {
+//     alert('Okay we support these browsers too');
+// } else {
 //     alert('We hope that this page looks ok!');
 // }
