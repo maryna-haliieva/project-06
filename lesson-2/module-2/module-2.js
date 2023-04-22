@@ -117,20 +117,64 @@ const filmoteka = [
 ];
 
 //? Напишіть функцію getAllTitlesOfFilms(films), яка повертає масив із усіма назвами фільмів.
-
+// const getAllTitlesOfFilms = function (films) {
+//   const newArray = [];
+//   for (const film of films) {
+//     // console.log(film.title);
+//      newArray.push(film.title); 
+//   }
+  
+//   return newArray;
+// }
+// console.log(getAllTitlesOfFilms(filmoteka));
 //? Напишіть функцію findFilmByName(films, filmTitle), яка шукає фільм за назвою.
-
+//  const findFilmByName = function(films, filmTitle) {
+//    for (const film of films) {
+//      if (film.title === filmTitle) {
+//        return film;
+//      } 
+//    }
+//    return `${filmTitle} Не знайдено`
+// }
+//  console.log(findFilmByName(filmoteka,"Venom"));
 //? Напишіть функцію getAdultFilms(films), яка повертає масив усіх дорослих фільмів.
-
+// const getAdultFilms = function (films) {
+//   const newArray = [];
+//    for (const film of films) {
+//      if (film.adult) {
+//        newArray.push(film);
+//      }
+     
+//   }
+//   return newArray;
+// }
+//  console.log(getAdultFilms(filmoteka));
 //? Напишіть функцію getNotAdultFilms(films), яка повертає масив усіх фільмів без обмеження.
-
+// const getNotAdultFilms = function (films) {
+//   const newArray = [];
+//    for (const film of films) {
+//      if (!film.adult) {
+//        newArray.push(film);
+//      }
+     
+//   }
+//   return newArray;
+// }
+//  console.log(getNotAdultFilms(filmoteka));
 //TODO:============task-4===============
 // Створіть масив styles з елементами «Джаз» та «Блюз».
 // Додайте "Рок-н-рол" в кінець.
 // Замініть значення "Блюз" на "Класика".
 // Видалить перший елемент масиву і виведіть його в консоль.
 // Вставте «Реп» і «Реггі» на початок масиву.
+// const styles = ["Джаз", "Блюз"];
+// styles.push("Рок-н-рол");
+// styles.splice(1, 1, "Класика");
 
+// console.log(styles.shift());
+// styles.unshift("Реп", "Реггі");
+// console.log(styles);
+ 
 //TODO:============task-5==============
 // Напишіть функцію min(a, b), яка повертає
 // менше з чисел a, b
