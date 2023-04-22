@@ -14,7 +14,15 @@
 //   hobby: 'reading',
 //   premium: true,
 // };
-
+// user.mood = 'happy';
+// user.hobby = 'skydiving'
+// user.premium = false;
+//  for (let item of Object.keys(user)) {
+//    console.log(`${item}: ${user[item]}  `);
+   
+  
+//  }
+// console.log(user);
 //? Answer
 
 //?
