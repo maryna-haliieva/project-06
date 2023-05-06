@@ -4,12 +4,12 @@
 // const product = {
 //     price: 5000,
 //     showPrice() {
-//         console.log(price)
+//         console.log(this.price)
 //     },
 // }
 // product.showPrice()
 
-//TODO:=================2=========================================================
+// TODO:=================2=========================================================
 
 //Виправте помилки, щоб код працював
 // const product = {
@@ -23,7 +23,7 @@
 //     action()
 // }
 
-// callAction(product.showPrice)
+// callAction(product.showPrice.bind(product))
 
 // Anser:
 
@@ -38,7 +38,22 @@
 //`Користувачеві ${} ${} років і в нього ${} публікацій.`
 
 // Aswer:
+// const User = function(param) {
+//    const {userName, age, numbersOfPost} = param;
+//     this.userName = userName
+//     this.age = age
+//     this.numbersOfPost = numbersOfPost
+//    this.getInfo = function() {
+    
+//     console.log(`Користувачеві ${this.userName} ${this.age} років і в нього ${this.numbersOfPost} публікацій.`);
+// }
+  
+// }
 
+// User.prototype.getInfo = function() {
+    
+//   console.log(`Користувачеві ${this.userName} ${this.age} років і в нього ${this.numbersOfPost} публікацій.`);
+// }
 /**
   |============================
   | Розкоментувати ; )
@@ -59,17 +74,40 @@
 //removeItem(item) - отримує товар і, якщо він є, видаляє його з поточних
 
 // Aswer:
+// const Storage = function(itemsArry) {
+//   this.items = itemsArry; 
+  
+// }
+// Storage.prototype.getItems = function() {
+//   return this.items;  
+// }
 
-/**
-  |============================
-  | Розкоментувати ; )
-  |============================
-*/
+// Storage.prototype.addItems = function(item) {
+//    return this.items.push(item); 
+// }
+
+// Storage.prototype.removeItems = function(item) {
+//   // return this.items = this.items.filter((el) => el !== item); 
+//   const  index = this.items.indexOf(item);
+//   console.log(index !== -1);
+//   console.log(index);
+//   if (index !== -1){
+//     this.items.splice(index, 1);
+
+//   } 
+//   return this.items;
+// }
+// /**
+//   |============================
+//   | Розкоментувати ; )
+//   |============================
+// */
 // const storage = new Storage(['apple', 'banana', 'mango']);
 
 // console.log(storage);
-// console.log(storage.removeItem('apple'));
+// console.log(storage.removeItems('kivi'));
 
+// console.log(storage.getItems());
 //! Class
 //TODO:=========1=========================================================
 //Напиши клас Client який створює об'єкт
@@ -103,23 +141,59 @@
 
 // Aswer:
 
+class Notes {
+  static Priority() {
+    return {
+      HIGHT: 'hight',
+      LOW: 'low',
+  }
+  
+      
+  }
+  constructor (){
+     this.items = [];
+
+  }
+ 
+  addNote(note) {
+    return this.items.push(note);
+  }
+
+  removeNote(text) {
+    return this.items = this.items.filter((el) => el.text !== text);
+  }
+
+  updatePriority({text, newPriority}) {
+    return this.items.map((el) => {
+      if (el.text === text){
+        el.priopity = newPriority; 
+      }
+     })
+  }
+
+
+
+
+}
+
 /**
   |============================
   | Розкоментувати ; )
   |============================
 */
 
-// const note1 = new Notes()
+const note1 = new Notes()
 
-// note1.addNote({ text: 'Note1', priority: Notes.Priority().LOW })
-// note1.addNote({ text: 'Note2', priority: Notes.Priority().LOW })
-// console.table(note1.items)
+note1.addNote({ text: 'Note1', priority: Notes.Priority().LOW })
+console.log(note1);
+note1.addNote({ text: 'Note2', priority: Notes.Priority().LOW })
+console.table(note1.items)
 
-// note1.removeNote('Note1')
-// console.table(note1.items)
+note1.removeNote('Note1')
+console.table(note1.items)
 
-// note1.updatePriority({ text: 'Note2', newPriority: Notes.Priority().HIGHT })
-// console.table(note1.items)
+note1.updatePriority({ text: 'Note2', newPriority: Notes.Priority().HIGHT })
+console.table(note1.items)
 
 //TODO:=========3===================================================================
 // Створити клас Worker, у якого є властивості name, age, salary.
