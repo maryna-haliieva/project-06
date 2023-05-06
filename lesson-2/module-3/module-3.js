@@ -161,41 +161,41 @@
 //   }
 //   return bestEmployee;
 // };
-const findBestEmployee = function (obj) {
-  let bestEmployee = "";
-  let bestTask = 0;
+// const findBestEmployee = function (obj) {
+//   let bestEmployee = "";
+//   let bestTask = 0;
 
-  for (const [employee, tasks] of Object.entries(obj)) {
-    if (tasks > bestTask) {
-      bestTask = tasks;
-      bestEmployee = employee;
-    }
-  }
-  return bestEmployee;
-};
+//   for (const [employee, tasks] of Object.entries(obj)) {
+//     if (tasks > bestTask) {
+//       bestTask = tasks;
+//       bestEmployee = employee;
+//     }
+//   }
+//   return bestEmployee;
+// };
 
-console.log(
-  findBestEmployee({
-    ann: 29,
-    david: 35,
-    helen: 1,
-    lorence: 99,
-  })
-); // lorence
+// console.log(
+//   findBestEmployee({
+//     ann: 29,
+//     david: 35,
+//     helen: 1,
+//     lorence: 99,
+//   })
+// ); // lorence
 
-console.log(
-  findBestEmployee({
-    poly: 12,
-    mango: 17,
-    ajax: 4,
-  })
-); // mango
+// console.log(
+//   findBestEmployee({
+//     poly: 12,
+//     mango: 17,
+//     ajax: 4,
+//   })
+// ); // mango
 
-console.log(
-  findBestEmployee({
-    lux: 147,
-    david: 21,
-    kiwi: 19,
-    chelsy: 38,
-  })
-); // lux
+// console.log(
+//   findBestEmployee({
+//     lux: 147,
+//     david: 21,
+//     kiwi: 19,
+//     chelsy: 38,
+//   })
+// ); // lux
