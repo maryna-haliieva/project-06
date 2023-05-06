@@ -72,17 +72,37 @@
 
 const array = [3, 5, 6, 34, 8, 83, 12, 34];
 
+// function each(array, callback) {
+//   const newArray = [];
+//   for (let item of array) {
+//     newArray.push(callback(item));
+//   }
+//   return newArray;
+// }
+// console.log(each(array, (number) => number * 2));
+
 //TODO:==================05============================
 //Напишіть функцію savePassword(password), яка приймає
 //пароль і повертає внутрішню функцію, що приймає
 //рядок і повертає буль true, якщо рядок збігається зі збереженим
-//паролем і false - якщо не збігається
+// паролем і false - якщо не збігається
+
+// function savePassword(password) {
+//   return (ourPassword) => password === ourPassword;
+// }
+
+// const checkPassword = savePassword("admin");
+
+// console.log(checkPassword("qwe"));
+// console.log(checkPassword("admin"));
 
 //! Методи масивів
 //TODO:=========task-1=================
 // ? Знайдіть перше непарне число
 
-// const numbers = [2, 1, 6, 8, 9, 10, 12]
+// const numbers = [2, 1, 6, 8, 9, 10, 12];
+// console.log(numbers.find((number) => number % 2 !== 0));
+// console.log(numbers);
 
 //TODO:===========task-2===============
 
@@ -176,25 +196,38 @@ const users = [
 //TODO:==========================
 // Отримати масив імен всіх користувачів (поле name).
 
+// console.log(users.map(({name}) => name));
+
 //TODO:==========================
 // Отримати масив об'єктів користувачів за кольором очей (eyeColor).
+// const getUsersByColor = (array, color) =>
+//   array.filter(({ eyeColor }) => eyeColor === color);
 
-// console.log(getUsersByColor(users, 'brown'))
-// console.log(getUsersByColor(users, 'blue')) // [объект Moore Hensley, объект Sharlene Bush, объект Carey Barr]
+// console.log(getUsersByColor(users, "brown"));
+// console.log(getUsersByColor(users, "blue")); // [объект Moore Hensley, объект Sharlene Bush, объект Carey Barr]
 
 //TODO:==========================
 // Отримати масив користувачів віком від min до max
 
+// const getUsersWithAge = (array, min, max) =>
+//   array.filter(({ age }) => age >= min && age <= max);
 // console.log(getUsersWithAge(users, 30, 40));
 // [объект Moore Hensley, объект Sharlene Bush, объект Blackburn Dotson, объект Sheree Anthony]
 
 //TODO:==========================
 // Отримати загальну суму балансу (поле balance) всіх користувачів.
 
+// const calculateTotalBalance = (array) =>
+//   array.reduce((acc, { balance }) => (balance += acc), 0);
 // console.log(calculateTotalBalance(users)); // 20916
 
 //TODO:==========================
 // Масив імен (поле name) людей, відсортованих залежно кількості їх друзів (поле friends)
+
+// const getNamesSortedByFriendsCount = (array) =>
+//   [...array]
+//     .sort((a, b) => a.friends.length - b.friends.length)
+//     .map(({ name }) => name);
 
 // console.log(getNamesSortedByFriendsCount(users));
 // [ 'Moore Hensley', 'Sharlene Bush', 'Elma Head', 'Carey Barr', 'Blackburn Dotson', 'Sheree Anthony', 'Ross Vazquez' ]
@@ -215,12 +248,17 @@ const users = [
 /// Результат ["Умань", "Харків", "Одеса"]
 
 // const concerts = {
-//     Київ: new Date('2020-04-01'),
-//     Умань: new Date('2023-07-02'),
-//     Вінниця: new Date('2020-04-21'),
-//     Одеса: new Date('2023-07-15'),
-//     Хмельницький: new Date('2020-04-18'),
-//     Харків: new Date('2023-07-10'),
-// }
+//   Київ: new Date("2020-04-01"),
+//   Умань: new Date("2023-07-02"),
+//   Вінниця: new Date("2020-04-21"),
+//   Одеса: new Date("2023-07-15"),
+//   Хмельницький: new Date("2020-04-18"),
+//   Харків: new Date("2023-07-10"),
+// };
+// const concertsToArray = (obj) => {
+//   return Object.keys(obj)
+//     .filter((city) => obj[city] > new Date())
+//     .sort((a, b) => obj[a] - obj[b]);
+// };
 
-// console.log(concertsToArray(concerts))
+// console.log(concertsToArray(concerts));
