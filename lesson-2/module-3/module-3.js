@@ -19,8 +19,7 @@
 // user.premium = false;
 //  for (let item of Object.keys(user)) {
 //    console.log(`${item}: ${user[item]}  `);
-   
-  
+
 //  }
 // console.log(user);
 //? Answer
@@ -33,16 +32,18 @@
 // Є 2 варіанти рішення, спочатку напишемо функцію, потім вирішимо простим способом
 
 // const obj = {
-//   name: 'Igor',
-//   car: 'Mercedes',
-//   carColor: 'black',
+//   name: "Igor",
+//   car: "Mercedes",
+//   carColor: "black",
 // };
 
-//? Answer
+// //? Answer
+// const getBool = function (obj, key) {
+//   return key in obj;
+// };
+// //?
 
-//?
-
-// console.log(getBool(obj, 'car')); // true
+// console.log(getBool(obj, "fly")); // true
 
 //TODO:==========task-3=============
 // У нас є об'єкт, у якому зберігатимуться зарплати
@@ -59,9 +60,12 @@
 
 // let sum = 0;
 
-//? Answer
-
-//?
+// //? Answer
+// for (const value of Object.values(salaries)) {
+//   console.log(value);
+//   sum += value;
+// }
+// //?
 
 // console.log(sum);
 
@@ -73,22 +77,30 @@
 //? Answer
 
 //?
+// const updateObject = function (obj, ...removeKeys) {
+//   console.log(removeKeys);
+//   const newObj = { ...obj };
+//   for (const key of removeKeys) {
+//     delete newObj[key];
+//   }
+//   return newObj;
+// };
 
-// console.log(updateObject({ a: 1, b: 2, c: 3 }, 'b', 'a')); // {c: 3}
+// console.log(updateObject({ a: 1, b: 2, c: 3 }, "b", "a")); // {c: 3}
 
 //TODO:=========task-5=================
 // Напишіть функцію, яка приймає як параметр об'єкт
 // та формує об'єкти у новому масиві у форматі [key, value]
 
 // const user = {
-//   name: 'John',
-//   surName: 'Stones',
+//   name: "John",
+//   surName: "Stones",
 //   age: 20,
-//   hobby: 'tenis',
+//   hobby: "tenis",
 //   haveCar: true,
 //   merried: false,
 // };
-
+// console.log(Object.entries(user));
 // ?Answer
 
 //?
@@ -103,12 +115,20 @@
 // let menu = {
 //   width: 200,
 //   height: 300,
-//   title: 'My menu',
+//   title: "My menu",
 // };
 
-//? Answer
-
-//?
+// //? Answer
+// const multiplyNumeric = function (obj) {
+//   for (const key in obj) {
+//     console.log(key);
+//     if (obj.hasOwnProperty(key) && typeof obj[key] === "number") {
+//       obj[key] *= 2;
+//     }
+//   }
+//   return obj;
+// };
+// //?
 
 // console.log(multiplyNumeric(menu));
 
@@ -129,29 +149,53 @@
 //? Answer
 
 // //?
+// const findBestEmployee = function (obj) {
+//   let bestEmployee = "";
+//   let bestTask = 0;
 
-// console.log(
-//   findBestEmployee({
-//     ann: 29,
-//     david: 35,
-//     helen: 1,
-//     lorence: 99,
-//   })
-// ); // lorence
+//   for (const value of Object.entries(obj)) {
+//     if (value[1] > bestTask) {
+//       bestTask = value[1];
+//       bestEmployee = value[0];
+//     }
+//   }
+//   return bestEmployee;
+// };
+const findBestEmployee = function (obj) {
+  let bestEmployee = "";
+  let bestTask = 0;
 
-// console.log(
-//   findBestEmployee({
-//     poly: 12,
-//     mango: 17,
-//     ajax: 4,
-//   })
-// ); // mango
+  for (const [employee, tasks] of Object.entries(obj)) {
+    if (tasks > bestTask) {
+      bestTask = tasks;
+      bestEmployee = employee;
+    }
+  }
+  return bestEmployee;
+};
 
-// console.log(
-//   findBestEmployee({
-//     lux: 147,
-//     david: 21,
-//     kiwi: 19,
-//     chelsy: 38,
-//   })
-// ); // lux
+console.log(
+  findBestEmployee({
+    ann: 29,
+    david: 35,
+    helen: 1,
+    lorence: 99,
+  })
+); // lorence
+
+console.log(
+  findBestEmployee({
+    poly: 12,
+    mango: 17,
+    ajax: 4,
+  })
+); // mango
+
+console.log(
+  findBestEmployee({
+    lux: 147,
+    david: 21,
+    kiwi: 19,
+    chelsy: 38,
+  })
+); // lux
