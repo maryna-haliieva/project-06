@@ -11,45 +11,107 @@
   |
   |  Виконай рефакторінг коду і зроби відкриття модального вікна за допомогою бібліотека "basicLightbox". Не забуть підключити скрипти і стилі у файл "index.html".
   |============================
+
+ // ВАРІАНТ 1
 */
+// const btnOpenModalEl = document.querySelector(".js-modal-open");
+// const btnCloseModalEl = document.querySelector(".js-modal-close");
+// const backDropEl = document.querySelector(".js-backdrop");
+// const bodyEl = document.querySelector("body");
+// //fuctions
+
+// const onOpenModalBtnElClick = () => {
+//   bodyEl.style.overflow = "hidden";
+//   backDropEl.classList.add("is-open");
+//   window.addEventListener("keydown", onEscClick);
+//   window.addEventListener("click", onBackdropClick);
+// };
+
+// const closeModalWindow = () => {
+//   bodyEl.style.overflow = "visible";
+//   backDropEl.classList.remove("is-open");
+//   window.removeEventListener("keydown", onEscClick);
+//   window.removeEventListener("click", onBackdropClick);
+// };
+
+// const onEscClick = (e) => {
+//   if (e.code !== "Escape") {
+//     return;
+//   }
+
+//   closeModalWindow();
+// };
+
+// const onBackdropClick = (e) => {
+//   if (e.target !== backDropEl) {
+//     return;
+//   }
+//   closeModalWindow();
+// };
+
+// //Collslisters
+// btnOpenModalEl.addEventListener("click", onOpenModalBtnElClick);
+// btnCloseModalEl.addEventListener("click", closeModalWindow);
+
+// ВАРІАНТ 2
+
 const btnOpenModalEl = document.querySelector(".js-modal-open");
-const btnCloseModalEl = document.querySelector(".js-modal-close");
-const backDropEl = document.querySelector(".js-backdrop");
 const bodyEl = document.querySelector("body");
+
 //fuctions
+const instance = basicLightbox.create(`
+    <div class="modal">
+        <button type="button" class="close-btn js-modal-close">X</button>
 
-const onOpenModalBtnElClick = () => {
+        <form class="login-form js-modal__form">
+          <label>
+            Name
+            <input type="text" name="name" placeholder="enter your name" />
+          </label>
+          <label>
+            Email
+            <input type="email" name="email" placeholder="enter your email" />
+          </label>
+          <label>
+            Password
+            <input type="password" name="password" placeholder="enter your password" />
+          </label>
+          <button type="submit">Login</button>
+        </form>
+      </div>
+`);
+
+function onOpenModalBtnElClick() {
+  instance.show();
   bodyEl.style.overflow = "hidden";
-  backDropEl.classList.add("is-open");
+
+  document
+    .querySelector(".js-modal-close")
+    .addEventListener("click", closeModalWindow);
+  document
+    .querySelector(".js-modal__form")
+    .addEventListener("submit", onSubmit);
+
   window.addEventListener("keydown", onEscClick);
-  window.addEventListener("click", onBackdropClick);
-};
+}
 
-const closeModalWindow = () => {
+function closeModalWindow() {
   bodyEl.style.overflow = "visible";
-  backDropEl.classList.remove("is-open");
-  window.removeEventListener("keydown", onEscClick);
-  window.removeEventListener("click", onBackdropClick);
-};
+  instance.close();
 
-const onEscClick = (e) => {
+  window.removeEventListener("keydown", onEscClick);
+}
+
+function onEscClick(e) {
   if (e.code !== "Escape") {
     return;
   }
 
   closeModalWindow();
-};
-
-const onBackdropClick = (e) => {
-  if (e.target !== backDropEl) {
-    return;
-  }
-  closeModalWindow();
-};
+}
 
 //Collslisters
 btnOpenModalEl.addEventListener("click", onOpenModalBtnElClick);
-btnCloseModalEl.addEventListener("click", closeModalWindow);
 
 /**
   |============================
@@ -65,7 +127,68 @@ btnCloseModalEl.addEventListener("click", closeModalWindow);
   |  - Пропиши колбєк функцію onSubmit. Не забувай про відміну поведінки по змовчуванню. Значення інпутів знайди за допомогою currentTarget і його elements.
   |  - Після отправки почисти форму і реалізуй автоматичне закриття модального вікна
   |============================
+
+  //ВАРІАНТ 1
 */
+// const formEl = document.querySelector(".js-modal__form");
+
+// const onSubmit = (e) => {
+//   e.preventDefault();
+
+//   const {
+//     elements: { name, email, password },
+//   } = e.currentTarget;
+
+//   if (!email.value || !password.value) {
+//     alert("email or password is empty");
+//     return;
+//   }
+
+//   const userData = {
+//     name: name.value || "Anonimus",
+//     email: email.value,
+//     password: password.value,
+//   };
+
+//   console.log(userData);
+
+//   // formEl.reset();
+//   // або
+//   e.currentTarget.reset();
+//   closeModalWindow();
+// };
+
+// formEl.addEventListener("submit", onSubmit);
+
+// ВАРІАНТ 2
+
+function onSubmit(e) {
+  e.preventDefault();
+
+  const {
+    elements: { name, email, password },
+  } = e.currentTarget;
+
+  if (!email.value || !password.value) {
+    alert("email or password is empty");
+    return;
+  }
+
+  const userData = {
+    name: name.value || "Anonimus",
+    email: email.value,
+    password: password.value,
+  };
+
+  console.log(userData);
+
+  e.currentTarget.reset();
+  closeModalWindow();
+
+  setTimeout(() => {
+    alert("Дякуємо за реєстрацію!");
+  }, 1000);
+}
 
 //TODO:====================02====================================TODOS============================================================================================
 /**
