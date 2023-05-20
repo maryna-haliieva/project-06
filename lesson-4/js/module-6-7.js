@@ -12,6 +12,44 @@
   |  Виконай рефакторінг коду і зроби відкриття модального вікна за допомогою бібліотека "basicLightbox". Не забуть підключити скрипти і стилі у файл "index.html".
   |============================
 */
+const btnOpenModalEl = document.querySelector(".js-modal-open");
+const btnCloseModalEl = document.querySelector(".js-modal-close");
+const backDropEl = document.querySelector(".js-backdrop");
+const bodyEl = document.querySelector("body");
+//fuctions
+
+const onOpenModalBtnElClick = () => {
+  bodyEl.style.overflow = "hidden";
+  backDropEl.classList.add("is-open");
+  window.addEventListener("keydown", onEscClick);
+  window.addEventListener("click", onBackdropClick);
+};
+
+const closeModalWindow = () => {
+  bodyEl.style.overflow = "visible";
+  backDropEl.classList.remove("is-open");
+  window.removeEventListener("keydown", onEscClick);
+  window.removeEventListener("click", onBackdropClick);
+};
+
+const onEscClick = (e) => {
+  if (e.code !== "Escape") {
+    return;
+  }
+
+  closeModalWindow();
+};
+
+const onBackdropClick = (e) => {
+  if (e.target !== backDropEl) {
+    return;
+  }
+  closeModalWindow();
+};
+
+//Collslisters
+btnOpenModalEl.addEventListener("click", onOpenModalBtnElClick);
+btnCloseModalEl.addEventListener("click", closeModalWindow);
 
 /**
   |============================
