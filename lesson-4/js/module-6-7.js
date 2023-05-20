@@ -169,15 +169,15 @@ function onSubmit(e) {
     elements: { name, email, password },
   } = e.currentTarget;
 
-  if (!email.value || !password.value) {
+  if (!email.value.trim() || !password.value.trim()) {
     alert("email or password is empty");
     return;
   }
 
   const userData = {
     name: name.value || "Anonimus",
-    email: email.value,
-    password: password.value,
+    email: email.value.trim(),
+    password: password.value.trim(),
   };
 
   console.log(userData);
